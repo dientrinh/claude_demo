@@ -1,6 +1,19 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { refund } from "./index.js";
+import { charge, refund } from "./index.js";
+
+test("charge with a repeated idempotencyKey returns the original result without charging again", () => {
+  const first = charge(1000, "charge-dup-1");
+  const second = charge(1000, "charge-dup-1");
+
+  assert.equal(second, first);
+  assert.equal(second.status, "ok");
+});
+
+test("charge without an idempotencyKey throws a TypeError", () => {
+  assert.throws(() => charge(1000), TypeError);
+  assert.throws(() => charge(1000, ""), TypeError);
+});
 
 test("refund with a repeated idempotencyKey returns the original result without refunding again", () => {
   const first = refund(500, "refund-dup-1");

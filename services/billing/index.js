@@ -1,4 +1,17 @@
-export const charge = (amount) => ({ amount, status: "ok" });
+const processedCharges = new Map();
+
+// a repeated idempotencyKey returns the original result without charging again
+export const charge = (amount, idempotencyKey) => {
+  if (!idempotencyKey) {
+    throw new TypeError("charge requires an idempotencyKey");
+  }
+  if (processedCharges.has(idempotencyKey)) {
+    return processedCharges.get(idempotencyKey);
+  }
+  const result = { amount, idempotencyKey, status: "ok" };
+  processedCharges.set(idempotencyKey, result);
+  return result;
+};
 
 const processedRefunds = new Map();
 
