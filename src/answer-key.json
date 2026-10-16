@@ -1,0 +1,17 @@
+[
+  {"id":"S01","file":"S01_sql_injection.js","category":"security","issue":"SQL built by string concatenation from name","should_flag":true,"severity":"critical"},
+  {"id":"S02","file":"S02_hardcoded_secret.js","category":"security","issue":"JWT signing secret hardcoded in source","should_flag":true,"severity":"critical"},
+  {"id":"S03","file":"S03_null_dereference.js","category":"bug","issue":"Map.get can return undefined, then customer.email throws","should_flag":true,"severity":"high"},
+  {"id":"S04","file":"S04_off_by_one.js","category":"bug","issue":"Loop bound length - 1 skips the last item","should_flag":true,"severity":"high"},
+  {"id":"S05","file":"S05_misleading_comment_sorted.js","category":"comment_contradiction","issue":"Comment says sorted by price; code never sorts","should_flag":true,"severity":"low"},
+  {"id":"S06","file":"S06_accurate_comment.js","category":"accurate_comment","issue":"None; comment matches code","should_flag":false,"severity":null},
+  {"id":"S07","file":"S07_style_only.js","category":"style","issue":"Inconsistent quotes, var, semicolons, spacing, naming","should_flag":false,"severity":null},
+  {"id":"S08","file":"S08_local_convention_applog.js","category":"local_pattern","issue":"AppLog wrapper is a documented convention","should_flag":false,"severity":null},
+  {"id":"S09","file":"S09_missing_auth_check.js","category":"security","issue":"DELETE route lacks requireRole unlike GET route","should_flag":true,"severity":"critical"},
+  {"id":"S10","file":"S10_resource_leak.js","category":"bug","issue":"File handle is never closed","should_flag":true,"severity":"high"},
+  {"id":"S11","file":"S11_terse_accurate_comment.js","category":"terse_comment","issue":"Terse comment but not contradictory","should_flag":false,"severity":null},
+  {"id":"S12","file":"S12_misleading_comment_retries.js","category":"comment_contradiction","issue":"Comment says 3 retries; loop runs 5 attempts","should_flag":true,"severity":"low"},
+  {"id":"S13","file":"S13_edge_case_empty_list.js","category":"bug","issue":"Empty array gives 0 / 0 = NaN","should_flag":true,"severity":"medium"},
+  {"id":"S14","file":"S14_local_convention_result.js","category":"local_pattern","issue":"Catch-all returning Result.failure is the project convention","should_flag":false,"severity":null},
+  {"id":"S15","file":"S15_speculative_unseen_code.js","category":"speculative","issue":"assertCanRead implementation not visible","should_flag":false,"severity":null}
+]
