@@ -1,11 +1,16 @@
 # Auth Service
 
-The auth service handles user login for the platform.
+The auth service handles user authentication for the Acme Platform. It lives in `index.js` and currently exports one function:
 
-## Exports
+- `login(user)` takes a user object and returns `{ user, token }`, where `token` is a placeholder string (`"x"`).
 
-- `login(user)` takes a user object and returns `{ user, token }`. The token is a placeholder (`"x"`), so this is a stub and does not yet issue real credentials.
+This is a stub. The token is not a real credential yet, so don't rely on it for access control. A production version needs real credential checks and signed tokens.
 
-## Status
+## Usage
 
-This is an early stub. Real token generation and credential checks are not implemented, and the authentication flow is still to be designed.
+```js
+import { login } from "./index.js";
+
+const session = login({ id: "123", name: "Ada" });
+// { user: { id: "123", name: "Ada" }, token: "x" }
+```
